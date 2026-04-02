@@ -593,5 +593,10 @@ pub const FUNCTIONS: FunctionExports = &[
     export_c_func!(remove(_)),
     export_c_func!(setbuf(_, _)),
     // POSIX-specific functions
-    export_c_func!(fileno(_)),
-];
+    export_c_func!( fileno__ ),
+    export_c_func!( ,
+        fn _freopen(_path: *const c_char, _mode: *const c_char, stream: *mut FILE) -> *mut FILE {
+            stream
+        }
+    ),
+ ];
